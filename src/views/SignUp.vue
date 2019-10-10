@@ -45,14 +45,14 @@
               <label class="custom-label col-md-3 display" for="rol">Tipo de Usuario</label>
               <select id="rol" class="form-control col-12 col-sm-10 col-md-7 offset-sm-1" v-model="role" required>
                 <option value="" disabled selected>-- Seleccione un Rol --</option>
-                <option v-for="role in roles" :value="role.id">{{role.roleName}}</option>
+                <option v-for="role in roles" :key="role.id" :value="role.id">{{role.roleName}}</option>
               </select>
             </div>
 
             <div class="col-12 col-sm-6 col-md-5 offset-md-2 text-center mb-3">
                 <span class="text-primary">
                   <small>
-                    <a href="#">&iquest;Ya tienes cuenta? Inicia Sesi&oacute;n</a>
+                    <router-link :to="{ name: 'login' }">&iquest;Ya tienes cuenta? Inicia Sesi&oacute;n</router-link>
                   </small>
                 </span>
             </div>
@@ -76,7 +76,7 @@
 
   import axios from 'axios'
 
-  const path = '/registro/';
+  const path = '/registro/nuevo-usuario/rol/';
 
   export default {
     name: "SignUp",
